@@ -51,6 +51,8 @@ DEFAULT_PARAMS = {
     "ipv6": False,
     "buffer_size": None,
     "strict_copy": False,
+    "vo_name": None,
+    "activity": "default",
 }
 
 
@@ -75,31 +77,31 @@ class JobSubmitter(Base):
 
             ```json
             {
-              "files": [
+                "files": [
                 {
-                  "sources": [
+                    "sources": [
                     "gsiftp://source.host/file"
-                  ],
-                  "destinations": [
+                    ],
+                    "destinations": [
                     "gsiftp://destination.host/file"
-                  ],
-                  "metadata": "file-metadata",
-                  "checksum": "ADLER32:1234",
-                  "filesize": 1024
+                    ],
+                    "metadata": "file-metadata",
+                    "checksum": "ADLER32:1234",
+                    "filesize": 1024
                 },
                 {
-                  "sources": [
+                    "sources": [
                     "gsiftp://source.host/file2"
-                  ],
-                  "destinations": [
+                    ],
+                    "destinations": [
                     "gsiftp://destination.host/file2"
-                  ],
-                  "metadata": "file2-metadata",
-                  "checksum": "ADLER32:4321",
-                  "filesize": 2048,
-                  "activity": "default"
+                    ],
+                    "metadata": "file2-metadata",
+                    "checksum": "ADLER32:4321",
+                    "filesize": 2048,
+                    "activity": "default"
                 }
-              ]
+                ]
             }
             ```
             """,
@@ -316,6 +318,18 @@ class JobSubmitter(Base):
             action="store_true",
             help="disable all checks, just copy the file",
         )
+        self.opt_parser.add_option(
+            "--vo-name",
+            dest="vo_name",
+            type="string",
+            help="VO for the given transfer job",
+        )
+        self.opt_parser.add_option(
+            "--activity",
+            dest="activity",
+            type="string",
+            help="Activity for the given transfer job",
+        )
 
     def validate(self):
         self.checksum = None
@@ -426,6 +440,8 @@ class JobSubmitter(Base):
             target_qos=self.options.target_qos,
             buffer_size=self.options.buffer_size,
             strict_copy=self.options.strict_copy,
+            vo_name=self.options.vo_name,
+            activity=self.options.activity,
         )
 
     def _do_submit(self, context):

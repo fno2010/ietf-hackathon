@@ -11,7 +11,7 @@ from distutils.errors import DistutilsFileError
 
 import yaml
 
-VALID_HOST_TYPES = ['rucio', 'xrd']
+VALID_HOST_TYPES = ['fts', 'rucio', 'xrd', 'iperf']
 
 PASSPHRASE = {'key': 'PASSPHRASE', 'val': 123456}
 
@@ -24,6 +24,30 @@ ODL_CONF = {
 
 RUCIO_CONF = {
     'image': 'openalto/rucio-dev',
+    'environment': [
+        'X509_USER_CERT=/opt/rucio/etc/usercert.pem',
+        'X509_USER_KEY=/opt/rucio/etc/userkey.pem',
+        'RDBMS=postgres14'
+    ],
+
+    'build': 'rucio-containers/dev',
+    'container_name': 'rucio'
+}
+
+RUCIODB_CONF = {
+    'image': 'docker.io/postgres:14',
+    'network_mode': "service:fts",
+    'environment': [
+        'POSTGRES_USER=rucio',
+        'POSTGRES_DB=rucio',
+        'POSTGRES_PASSWORD=secret'
+    ],
+    'command': ["-c", "fsync=off", "-c", "synchronous_commit=off", "-c", "full_page_writes=off"],
+}
+
+FTS_CONF = {
+    'image': 'openalto/fts',
+    'network_mode': "service:fts",
     'ports': [
         "127.0.0.1:8443:443",
         "127.0.0.1:5432:5432",
@@ -35,35 +59,11 @@ RUCIO_CONF = {
         "127.0.0.1:61613:61613",
         "127.0.0.1:2222:22"
     ],
-    'environment': [
-        'X509_USER_CERT=/opt/rucio/etc/usercert.pem',
-        'X509_USER_KEY=/opt/rucio/etc/userkey.pem',
-        'RDBMS=postgres14'
-    ],
-
-    'build': 'rucio-containers/dev',
     'cap_add': ['NET_ADMIN', ],
-    'container_name': 'rucio'
-}
-
-RUCIODB_CONF = {
-    'image': 'docker.io/postgres:14',
-    'network_mode': "service:rucio",
-    'environment': [
-        'POSTGRES_USER=rucio',
-        'POSTGRES_DB=rucio',
-        'POSTGRES_PASSWORD=secret'
-    ],
-    'command': ["-c", "fsync=off", "-c", "synchronous_commit=off", "-c", "full_page_writes=off"],
-}
-
-FTS_CONF = {
-    'image': 'openalto/fts',
-    'network_mode': "service:rucio",
 }
 FTSDB_CONF = {
     'image': 'docker.io/mysql:8',
-    'network_mode': "service:rucio",
+    'network_mode': "service:fts",
     'command': '--default-authentication-plugin=mysql_native_password',
     'environment': [
         'MYSQL_USER=fts',
@@ -99,6 +99,11 @@ MININET_CONF = {
 XRD_CONF = {
     'image': 'openalto/xrootd',
     'environment': ['XRDPORT=1094'],
+    'cap_add': ['NET_ADMIN']
+}
+
+IPERF_CONF = {
+    'image': 'openalto/iperf',
     'cap_add': ['NET_ADMIN']
 }
 
@@ -173,6 +178,7 @@ class GenerateDockerCompose:
         self.fts_filepath = ''
         self.alto_filepath = ''
         self.rucio_filepath = ''
+        self.iperf_filepath = ''
         self.base_filepath = ''
         self.common_fts_dirpath = ''
         self.common_odl_dirpath = ''
@@ -197,7 +203,7 @@ class GenerateDockerCompose:
             # parsing configuration file
             self.parse_cfg()
             # generate key for xrd
-            self.generate_key()
+            # self.generate_key()
             # save docker-compose file
             self.save()
             print(self.static_services)
@@ -219,6 +225,7 @@ class GenerateDockerCompose:
         domains = dynamic['domains']
 
         has_rucio = False
+        has_fts = False
         for domain in domains:
             assert 'controller' in domain, 'Must set the controller field for every domains item'
             assert 'name' in domain['controller'], 'Must set the name field for controller'
@@ -234,8 +241,10 @@ class GenerateDockerCompose:
                 if host['type'] == 'rucio':
                     # assert (has_rucio is False), "Must have only one instance of Rucio in each net"
                     has_rucio = True
+                if host['type'] == 'fts':
+                    has_fts = True
 
-        assert has_rucio, "Must have one instance of Rucio"
+        assert has_rucio or has_fts, "Must have one instance of either Rucio or FTS"
 
         self.workflow_name = cfg['name']
 
@@ -248,12 +257,15 @@ class GenerateDockerCompose:
         # docker dir is a empty dir
         check_or_create_filepath(self.docker_filepath)
 
-        # subfolders of the fts dir
+        # common subfolders
         child_filepaths = [
             'log', 'etc'
         ]
+        # subfolders of the fts dir
+        fts_child_filepaths = [ 'ssh' ] + child_filepaths
+
         self.fts_filepath = os.path.abspath(os.path.join(base_filepath, 'fts'))
-        check_or_create_filepath(self.fts_filepath, child_filepaths)
+        check_or_create_filepath(self.fts_filepath, fts_child_filepaths)
 
         self.rucio_filepath = os.path.abspath(os.path.join(base_filepath, 'rucio'))
         rucio_child_filepaths = [
@@ -264,11 +276,16 @@ class GenerateDockerCompose:
         self.alto_filepath = os.path.abspath(os.path.join(base_filepath, 'alto'))
         check_or_create_filepath(self.alto_filepath)
 
+        self.iperf_filepath = os.path.abspath(os.path.join(base_filepath, 'iperf'))
+        check_or_create_filepath(self.iperf_filepath, child_filepaths)
+
         # copy configuration fts file from /common/fts/fts3config
         self.common_fts_dirpath = '../common/fts/'
         # shutil.copyfile(common_cfg_fts_filepath, os.path.join(self.fts_filepath, 'etc/fts3config'))
 
         self.common_odl_dirpath = '../common/odl/'
+
+        self.common_iperf_dirpath = '../common/iperf/'
 
         fts_mod_cfg = cfg.get('fts_mod')
         if fts_mod_cfg:
@@ -332,6 +349,10 @@ class GenerateDockerCompose:
                     self.xrd_name_list.append(container_name)
                     self.add_xrd_service(container_name)
                 # volumes
+                if host_type == 'iperf':
+                    host_name = host['name']
+                    container_name = host_name
+                    self.add_iperf_service(container_name)
                 elif host_type == 'rucio':
                     self.add_rucio_service()
 
@@ -375,11 +396,18 @@ class GenerateDockerCompose:
 
         self.static_services['fts'] = {
             **FTS_CONF,
+            'extra_hosts': sorted([
+                '%s:%s' % (k, v if k not in VALID_STATIC_TYPES else '127.0.0.1')
+                for k, v in self.extra_hosts.items()
+            ]),
             'volumes': [
                 '{}/etc/fts3config:/etc/fts3/fts3config:Z'.format(self.fts_filepath),
                 '{}/etc/fts3rest.conf:/etc/fts3/fts3rest.conf:Z'.format(self.fts_filepath),
                 '{}/etc/fts3restconfig:/etc/fts3/fts3restconfig:Z'.format(self.fts_filepath),
                 '{}/patch/jobsubmitter.py:/usr/lib/python3.6/site-packages/fts3/cli/jobsubmitter.py:Z'.format(self.fts_filepath),
+                '{}/patch/JobBuilder.py:/usr/lib/python3.6/site-packages/fts3rest/lib/JobBuilder.py:Z'.format(self.fts_filepath),
+                '{}/ssh/id_rsa:/tmp/id_rsa:ro'.format(self.fts_filepath),
+                '{}/ssh/id_rsa.pub:/tmp/id_rsa.pub:ro'.format(self.fts_filepath),
             ] + sorted(["%s:%s:z" % (k, v) for k, v in self.fts_mod_mounts.items()]),
         }
 
@@ -429,6 +457,25 @@ class GenerateDockerCompose:
         # xrd['cap_add'] = XRD_CAP_ADD
         self.dynamic_services[container_name] = xrd
 
+    def add_iperf_service(self, container_name):
+        try:
+            distutils.dir_util.copy_tree(self.common_iperf_dirpath, self.iperf_filepath)
+        except DistutilsFileError:
+            print('Warning: common_iperf_dirpath is not a directory')
+
+        iperf = {
+            **IPERF_CONF,
+            'container_name': container_name,
+            'extra_hosts': sorted([
+                '%s:%s' % (k, v if k != container_name else '127.0.0.1')
+                for k, v in self.extra_hosts.items()
+            ]),
+            'volumes': [
+                '{}/etc/authorized_keys:/tmp/authorized_keys:ro'.format(self.iperf_filepath)
+            ]
+        }
+        self.dynamic_services[container_name] = iperf
+
     def collect_hosts(self):
         cfg = self.cfg
         domains = cfg['dynamic']['domains']
@@ -450,7 +497,13 @@ class GenerateDockerCompose:
                     extra_hosts['fts'] = ip
                     extra_hosts['ftsdb'] = ip
                     extra_hosts['activemq'] = ip
+                if host_type == 'fts':
+                    extra_hosts['fts'] = ip
+                    extra_hosts['ftsdb'] = ip
+                    extra_hosts['activemq'] = ip
                 elif host_type == 'xrd':
+                    extra_hosts[name] = ip
+                elif host_type == 'iperf':
                     extra_hosts[name] = ip
 
         self.net_host_map = net_host_map
