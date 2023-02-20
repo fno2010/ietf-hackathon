@@ -29,960 +29,960 @@ dynamic:
       type: iperf
     links:
     - bandwidth: 100
-      endpoint:
-      - rucio
+      endpoints:
+      - fts
       - s2
       latency: 1
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - iperf1
       - s2
       latency: 1
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - iperf2
       - s29
       latency: 1
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - iperf3
       - s45
       latency: 1
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - iperf4
       - s91
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - iperf5
       - s35
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s2
       - s23
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s2
       - s31
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s2
       - s45
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s2
       - s15
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s3
       - s8
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s4
       - s7
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s30
       - s5
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s30
       - s9
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s29
       - s23
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s29
       - s5
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s29
       - s6
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s31
       - s33
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s31
       - s91
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s31
       - s45
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s31
       - s35
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s33
       - s5
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s33
       - s6
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s31
       - s5
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s32
       - s45
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s34
       - s17
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s23
       - s12
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s23
       - s45
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s23
       - s56
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s23
       - s125
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s23
       - s125
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s125
       - s12
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s125
       - s13
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s125
       - s38
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s125
       - s38
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s24
       - s8
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s24
       - s11
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s25
       - s10
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s25
       - s9
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s26
       - s8
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s26
       - s39
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s27
       - s13
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s41
       - s14
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s41
       - s12
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s28
       - s19
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s42
       - s18
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s43
       - s20
       latency: 5
     - bandwidth: 200
-      endpoint:
+      endpoints:
       - s38
       - s12
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s38
       - s48
       latency: 5
     - bandwidth: 200
-      endpoint:
+      endpoints:
       - s36
       - s15
       latency: 5
     - bandwidth: 200
-      endpoint:
+      endpoints:
       - s36
       - s48
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s37
       - s35
       latency: 5
     - bandwidth: 200
-      endpoint:
+      endpoints:
       - s37
       - s17
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s37
       - s48
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s36
       - s45
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s35
       - s17
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s35
       - s45
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s35
       - s89
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s44
       - s17
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s44
       - s15
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s44
       - s93
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s80
       - s82
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s81
       - s89
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s83
       - s20
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s83
       - s84
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s84
       - s46
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s84
       - s79
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s81
       - s89
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s85
       - s46
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s86
       - s46
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s88
       - s89
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s87
       - s108
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s87
       - s127
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s89
       - s91
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s89
       - s119
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s89
       - s90
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s89
       - s48
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s91
       - s92
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s91
       - s94
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s91
       - s79
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s91
       - s14
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s91
       - s73
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s91
       - s45
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s91
       - s14
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s91
       - s17
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s91
       - s93
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s91
       - s48
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s91
       - s79
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s45
       - s100
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s45
       - s93
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s45
       - s73
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s45
       - s36
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s45
       - s93
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s45
       - s65
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s119
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s45
       - s119
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s47
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s47
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s93
       - s126
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s48
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s49
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s121
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s93
       - s126
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s79
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s17
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s15
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s47
       - s120
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s47
       - s119
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s48
       - s49
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s48
       - s121
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s48
       - s103
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s48
       - s120
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s49
       - s118
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s49
       - s79
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s49
       - s120
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s49
       - s121
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s121
       - s109
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s121
       - s110
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s121
       - s111
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s121
       - s122
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s121
       - s122
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s121
       - s79
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s121
       - s128
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s121
       - s112
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s121
       - s117
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s117
       - s116
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s117
       - s115
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s117
       - s113
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s117
       - s114
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s117
       - s79
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s79
       - s128
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s73
       - s79
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s77
       - s76
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s77
       - s78
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s77
       - s48
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s75
       - s74
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s75
       - s48
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s120
       - s52
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s120
       - s100
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s120
       - s57
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s120
       - s71
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s120
       - s71
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s120
       - s124
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s120
       - s103
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s103
       - s123
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s103
       - s106
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s103
       - s105
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s103
       - s73
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s73
       - s100
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s73
       - s100
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s73
       - s68
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s73
       - s71
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s100
       - s68
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s100
       - s65
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s100
       - s97
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s100
       - s99
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s99
       - s101
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s99
       - s98
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s97
       - s65
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s126
       - s65
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s65
       - s68
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s65
       - s17
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s65
       - s70
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s65
       - s64
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s65
       - s60
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s65
       - s15
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s70
       - s71
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s66
       - s60
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s66
       - s67
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s67
       - s12
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s63
       - s60
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s61
       - s60
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s59
       - s62
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s62
       - s57
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s58
       - s51
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s58
       - s17
       latency: 5
     - bandwidth: 1
-      endpoint:
+      endpoints:
       - s56
       - s125
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s102
       - s53
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s102
       - s54
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s102
       - s55
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s102
       - s52
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s52
       - s51
       latency: 5
     - bandwidth: 10
-      endpoint:
+      endpoints:
       - s52
       - s17
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s14
       - s17
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s14
       - s15
       latency: 5
     - bandwidth: 400
-      endpoint:
+      endpoints:
       - s15
       - s17
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s93
       - s56
       latency: 5
     - bandwidth: 200
-      endpoint:
+      endpoints:
       - s38
       - s37
       latency: 5
     - bandwidth: 200
-      endpoint:
+      endpoints:
       - s38
       - s36
       latency: 5
     - bandwidth: 200
-      endpoint:
+      endpoints:
       - s36
       - s37
       latency: 5
     - bandwidth: 100
-      endpoint:
+      endpoints:
       - s73
       - s107
       latency: 5
     name: net1
-interdomain: []
+  interdomain: []
 workload:
   - src: iperf1
     dst: iperf2

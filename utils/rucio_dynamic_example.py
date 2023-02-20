@@ -17,7 +17,7 @@ from mininet.cli import CLI
 from mininet.link import TCLink
 from mininet.log import info, setLogLevel
 
-setLogLevel('info')
+setLogLevel('debug')
 
 OPENFLOW_VERSION = "OpenFlow13"
 ODL_AUTH = ("admin", "admin")

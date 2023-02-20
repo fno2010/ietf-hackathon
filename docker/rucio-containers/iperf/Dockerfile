@@ -2,7 +2,7 @@ FROM alpine:latest
 
 LABEL maintainer="Jensen Zhang"
 
-RUN apk add --no-cache iperf openssh openrc \
+RUN apk add --no-cache bash iperf openssh openrc \
         && mkdir -p /root/.ssh \
         && chmod 0700 /root/.ssh \
         && mkdir -p /run/openrc \
